@@ -1,0 +1,39 @@
+* What
+poe-modules is an Emacs Lisp package that simplifies the management of your Emacs configuration by providing utilities for organizing and loading configuration files. It follows the philosophy of Plain Old Emacs (POE) and aims to streamline the customization process.
+
+* More What
+The package offers the following features:
+
+- Customization Options:
+  poe-modules provides customizable variables that allow you to configure the base directory for your configuration files, specify the list of modules to load, and define module configurations. These variables can be easily customized to adapt to your specific Emacs setup.
+
+- Path Expansion:
+  The poe-modules-expand-paths function takes a base directory and a list of module symbols. It expands each symbol to a fully expanded subdirectory path within the base directory. This enables you to organize your configuration files in a structured manner, making it easier to manage and locate specific module configurations.
+
+- Config File Discovery:
+  The poe-modules-find-config-files function takes a list of directories and searches for the presence of a configuration file named "config.el" within each directory. It validates the existence of the file in each directory and returns a list of fully expanded file paths for the valid "config.el" files. This allows you to easily discover and load the appropriate configuration files for your modules.
+
+- File Loading:
+  The poe-modules-load-files function loads the configuration files from a given list of file paths. It validates the existence of each file and loads it into Emacs. Additionally, if enabled, it can provide timing information for each file load using benchmarking techniques, allowing you to identify potential performance bottlenecks.
+
+    Module Loading: The poe-modules-load-modules function serves as a convenient entry point for loading the configuration files for the specified modules. It utilizes the path expansion and config file discovery functions to locate and load the relevant configuration files for the modules defined in your configuration. It also provides the option to enable or disable timing information for file loading.
+
+By leveraging poe-modules, you can organize your Emacs configuration into modular components, easily load the configuration files for specific modules, and streamline the management of your Emacs setup. It promotes the principles of Plain Old Emacs, making your configuration more maintainable and enhancing your overall Emacs experience.
+
+* Why
+In summary, the motivation behind the development of POE-Modules stemmed from the need to simplify Emacs configuration, avoid excessive opinionation, foster user understanding, and provide flexibility and customizability. By offering a lightweight and transparent approach, the package aims to empower users to build personalized and maintainable Emacs configurations. In the next part of this series, we will delve into the philosophy and implementation of POE-Modules, highlighting its core principles and potential areas for improvement.
+
+* How
+An example from my config:
+#+begin_src elisp
+  (use-package poe-modules
+    :ensure nil
+    :load-path "~/.config/emacs/lisp/poe-modules"
+    :config
+    (setq poe-module-base-directory (concat user-emacs-directory "modules"))
+    (setq poe-module-module-list '(poe-custom
+				   poe-fido))
+    (poe-modules-load-modules
+     poe-module-base-directory
+     poe-module-module-list t))
+#+end_src
