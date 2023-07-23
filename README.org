@@ -21,7 +21,7 @@ The package offers the following features:
 By leveraging poe-modules, you can organize your Emacs configuration into modular components, easily load the configuration files for specific modules, and streamline the management of your Emacs setup. It promotes the principles of Plain Old Emacs, making your configuration more maintainable and enhancing your overall Emacs experience.
 
 * Why
-In summary, the motivation behind the development of POE-Modules stemmed from the need to simplify Emacs configuration, avoid excessive opinionation, foster user understanding, and provide flexibility and customizability. By offering a lightweight and transparent approach, the package aims to empower users to build personalized and maintainable Emacs configurations. In the next part of this series, we will delve into the philosophy and implementation of POE-Modules, highlighting its core principles and potential areas for improvement.
+In summary, the motivation behind the development of POE-Modules stemmed from the need to simplify Emacs configuration, avoid excessive opinionation, foster user understanding, and provide flexibility and customizability. By offering a lightweight and transparent approach, the package aims to empower users to build personalized and maintainable Emacs configurations.
 
 * How
 An example from my config:
